@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AdminPro - Modern Admin Dashboard UI">
+    <title>AdminPro - Dashboard</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-bolt"></i>
+                <span>Admin<strong>Pro</strong></span>
+            </div>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <span class="nav-label">Main Menu</span>
+                <ul>
+                    <li class="nav-item active">
+                        <a href="#" class="nav-link" data-page="dashboard">
+                            <i class="fas fa-grid-2"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-page="analytics">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics</span>
+                            <span class="badge">New</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-page="users">
+                            <i class="fas fa-users"></i>
+                            <span>Users</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-page="orders">
+                            <i class="fas fa-bag-shopping"></i>
+                            <span>Orders</span>
+                            <span class="badge badge-red">12</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-page="products">
+                            <i class="fas fa-box"></i>
+                            <span>Products</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-page="messages">
+                            <i class="fas fa-envelope"></i>
+                            <span>Messages</span>
+                            <span class="badge badge-blue">5</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <span class="nav-label">Settings</span>
+                <ul>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-page="settings">
+                            <i class="fas fa-gear"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-page="profile">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">RS</div>
+                <div class="user-details">
+                    <span class="user-name">Rajat Sharma</span>
+                    <span class="user-role">Web Developer</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ===== OVERLAY ===== -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content" id="mainContent">
+
+        <!-- Top Bar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="page-title">
+                    <h1>Dashboard</h1>
+                    <p>Welcome back, Rajat 👋</p>
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <button class="icon-btn" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="icon-btn notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+                <div class="topbar-avatar">RS</div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="content">
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon bg-purple">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <p class="stat-label">Total Users</p>
+                        <h3 class="stat-value" data-target="24521">0</h3>
+                        <span class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 12.5%
+                        </span>
+                        <span class="stat-period">vs last month</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon bg-green">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <p class="stat-label">Total Revenue</p>
+                        <h3 class="stat-value" data-target="84320">0</h3>
+                        <span class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 8.2%
+                        </span>
+                        <span class="stat-period">vs last month</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon bg-blue">
+                        <i class="fas fa-bag-shopping"></i>
+                    </div>
+                    <div class="stat-info">
+                        <p class="stat-label">Total Orders</p>
+                        <h3 class="stat-value" data-target="1893">0</h3>
+                        <span class="stat-change negative">
+                            <i class="fas fa-arrow-down"></i> 3.1%
+                        </span>
+                        <span class="stat-period">vs last month</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon bg-orange">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="stat-info">
+                        <p class="stat-label">Conversion Rate</p>
+                        <h3 class="stat-value" data-target="3">0</h3>
+                        <span class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 1.8%
+                        </span>
+                        <span class="stat-period">vs last month</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="charts-row">
+                <!-- Revenue Chart -->
+                <div class="chart-card large">
+                    <div class="card-header">
+                        <div>
+                            <h3>Revenue Overview</h3>
+                            <p>Monthly revenue for 2024</p>
+                        </div>
+                        <div class="chart-tabs">
+                            <button class="chart-tab active">Monthly</button>
+                            <button class="chart-tab">Weekly</button>
+                        </div>
+                    </div>
+                    <canvas id="revenueChart"></canvas>
+                </div>
+
+                <!-- Traffic Chart -->
+                <div class="chart-card small">
+                    <div class="card-header">
+                        <div>
+                            <h3>Traffic Sources</h3>
+                            <p>User acquisition channels</p>
+                        </div>
+                    </div>
+                    <canvas id="trafficChart"></canvas>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background:#667eea"></span>
+                            Organic
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background:#2ecc71"></span>
+                            Social
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background:#f39c12"></span>
+                            Direct
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background:#e74c3c"></span>
+                            Referral
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Row -->
+            <div class="bottom-row">
+                <!-- Recent Orders Table -->
+                <div class="table-card">
+                    <div class="card-header">
+                        <div>
+                            <h3>Recent Orders</h3>
+                            <p>Latest 5 transactions</p>
+                        </div>
+                        <button class="btn-view">View All</button>
+                    </div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Product</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTable">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Top Products -->
+                <div class="products-card">
+                    <div class="card-header">
+                        <div>
+                            <h3>Top Products</h3>
+                            <p>Best performing items</p>
+                        </div>
+                    </div>
+                    <div class="products-list" id="productsList">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="activity-card">
+                <div class="card-header">
+                    <div>
+                        <h3>Recent Activity</h3>
+                        <p>Latest system events</p>
+                    </div>
+                    <button class="btn-view">Clear All</button>
+                </div>
+                <div class="activity-list" id="activityList">
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
