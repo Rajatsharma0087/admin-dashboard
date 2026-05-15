@@ -56,4 +56,4 @@ admin-dashboard/
 **Open for freelance work → DM on Twitter**
 
 ---
-Made with ❤️ by Rajat 
+Made with ❤️ by Rajat Sharma
